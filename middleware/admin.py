@@ -1,3 +1,9 @@
-# from django.contrib import admin
+from django.contrib import admin
+from middleware.models import Log
 
-# Register your models here.
+
+class LogAdmin(admin.ModelAdmin):
+    list_display = ('timestamp', 'path', 'method')
+
+
+admin.site.register(Log, LogAdmin)
